@@ -1,27 +1,24 @@
-abstract class Pessoas extends Cadastro{
+
+import java.util.ArrayList;
+
+abstract class Pessoas extends Cadastro implements Acoes{
+    protected ArrayList<Produto> lista = new ArrayList<>();
+    protected ArrayList <Pessoas> listaPessoas;
     protected  String nome;
-    protected  int CPF;
+    protected  String CPF;
     protected  int idade;
     
 
-    public Pessoas(String nome, int CPF, int idade){
+    public Pessoas(String nome, String CPF, int idade){
         this.nome = nome;
         this.CPF = CPF;
         this.idade = idade;
     }
-    public void mostrarPessoas(){
-        System.out.println("Pessoas: ");
-        for (Pessoas pessoas : listaPessoas) {
-            System.out.println("Nome: " + pessoas.getNome());
-            System.out.println("Valor por Unidade: " + pessoas.getCPF());
-            System.out.println("Estoque: " + pessoas.getIdade());
-            System.out.println("================");
-        }
-    }
+
     public String getNome() {
         return nome;
     }
-    public int getCPF() {
+    public String getCPF() {
         return CPF;
     }
     public int getIdade() {

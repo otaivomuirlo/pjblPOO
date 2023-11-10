@@ -1,4 +1,3 @@
 public interface Acoes {
-    void addProduto();
-    String verLIsta();
+    public void mostrarProdutos(Papelaria p, PetShop pShop);
 }

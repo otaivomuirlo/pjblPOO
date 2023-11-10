@@ -1,18 +1,20 @@
+import java.util.ArrayList;
+
+public class Produto extends Cadastro{
+    private ArrayList<Produto> lista = new ArrayList<>();
+    protected String nome;
+    protected double valor;
+    protected int estoque;
 
 
-public class Produto extends Cadastro {
-    private String nome;
-    private double valor;
-    private int estoque;
-    private int tipo; 
-    private int opcao;
-
-    public Produto(String nome, int estoque, double valor, int tipo, int opcao) {
+    public Produto(String nome, int estoque, double valor) {
         this.nome = nome;
         this.estoque = estoque;
         this.valor = valor;
-        this.tipo = tipo;
-        this.opcao = opcao;
+
+    }
+    public void addProduto(Produto produto){
+        lista.add(produto);
     }
     public void mostrarProdutos(){
         System.out.println("Departamento: ");
@@ -36,10 +38,8 @@ public class Produto extends Cadastro {
         return estoque;
     }
 
-    public int getTipo() {
-        return tipo;
-    }
-    public int getOpcao(){
-        return opcao;
+    
+    public void setEstoque(int novoEstoque) {
+        this.estoque = novoEstoque;
     }
 }
