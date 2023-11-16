@@ -14,7 +14,9 @@ public class Gerente extends Funcionario {
         listaGerentes.add(g);
     }
 
-
+    public ArrayList<Cliente> getListaClientes() {
+        return listaClientes;
+    }
 
     public void mostrarFuncionario(){
         System.out.println("Funcionario: ");

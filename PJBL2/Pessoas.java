@@ -1,7 +1,7 @@
 
 import java.util.ArrayList;
 
-abstract class Pessoas extends Cadastro implements Acoes{
+public class Pessoas extends Cadastro implements Acoes{
     protected ArrayList<Produto> lista = new ArrayList<>();
     protected ArrayList <Pessoas> listaPessoas;
     protected  String nome;
@@ -14,7 +14,11 @@ abstract class Pessoas extends Cadastro implements Acoes{
         this.CPF = CPF;
         this.idade = idade;
     }
-
+    
+    public void mostrarProdutos(Papelaria p, PetShop pShop){
+        p.mostrarProdutos();
+        pShop.mostrarProdutos();
+    }
     public String getNome() {
         return nome;
     }

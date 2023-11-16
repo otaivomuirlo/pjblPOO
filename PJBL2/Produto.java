@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Produto extends Cadastro{
+public  abstract class Produto extends Cadastro{
     private ArrayList<Produto> lista = new ArrayList<>();
     protected String nome;
     protected double valor;
@@ -13,8 +13,12 @@ public class Produto extends Cadastro{
         this.valor = valor;
 
     }
+    
     public void addProduto(Produto produto){
         lista.add(produto);
+    }
+    public void atualizarEstoque(int quantidadeVendida) {
+        this.estoque -= quantidadeVendida;
     }
     public void mostrarProdutos(){
         System.out.println("Departamento: ");

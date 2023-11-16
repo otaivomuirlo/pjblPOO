@@ -15,7 +15,7 @@ public class Funcionario extends Pessoas{
         p.mostrarProdutos();
         pShop.mostrarProdutos();
     }
-    protected boolean reestocarProduto(String nome, ArrayList <Papelaria> listaPapelaria, ArrayList<Produto> lista ) {
+    protected boolean reestocarProduto(String nome, ArrayList <Papelaria> listaPapelaria, ArrayList <Papelaria> listaDesenho, ArrayList<PetShop> listaRoupinhas, ArrayList <PetShop> listaBrinquedos  ) {
         boolean encontrou = false;
         System.out.println("Informe o nome do Produto que quer reestocar: ");
         String buscar = scanner.next();

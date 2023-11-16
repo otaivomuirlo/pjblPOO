@@ -1,4 +1,3 @@
-
 import java.io.Serializable;
 import java.util.Scanner;
 
@@ -12,8 +11,8 @@ public abstract class Cadastro implements Serializable {
     boolean quit = false;
     Scanner scanner = new Scanner(System.in);
 
-    public void cadastrarProduto(Papelaria papelaria, PetShop petShop) {
-        
+    
+    public void cadastrarProduto(Papelaria papelaria, PetShop petShop) {   
             while(!quit){
                 System.out.println();
                 System.out.println("Bem vindo ao sistema de cadastro de produtos");
@@ -36,116 +35,101 @@ public abstract class Cadastro implements Serializable {
                 int tipo = scanner.nextInt();
 
                 if (tipo == 1) {
-
                     System.out.println("Selecione a categoria do produto");
                     System.out.println("1 - Escolar");
                     System.out.println("2 - Desenho");
-                    System.out.println();
                     int opcao = scanner.nextInt();
                     if (opcao == 1) {
                         Papelaria produto = new Papelaria(nome, estoque, valor);
-                        papelaria.addProduto(produto); 
-                        papelaria.addProdutoEscolar(produto); 
+                        papelaria.addProdutoEscolar((Papelaria) produto);
                     } else if (opcao == 2) {
                         Papelaria produto = new Papelaria(nome, estoque, valor);
-                        papelaria.addProduto(produto); 
-                        papelaria.addProdutoDesenho(produto); 
+                        papelaria.addProdutoDesenho((Papelaria) produto);
                     }
-                    
-                }
-                else if (tipo == 2) {
+                } else if (tipo == 2) {
                     System.out.println("Selecione a categoria do produto");
                     System.out.println("1 - Roupinhas");
                     System.out.println("2 - Brinquedos");
-                    System.out.println();
                     int opcao = scanner.nextInt();
                     if (opcao == 1) {
                         PetShop produto = new PetShop(nome, estoque, valor);
-                        petShop.addProduto(produto); 
-                        petShop.addProdutoRoupinhas(produto); 
+                        petShop.addProdutoRoupinhas(produto);
                     } else if (opcao == 2) {
                         PetShop produto = new PetShop(nome, estoque, valor);
-                        petShop.addProduto(produto); 
-                        petShop.addProdutoBrinquedos(produto);
+                        petShop.addProdutoBrinquedos((PetShop) produto);
+                    }else{
+                        
                     }
-
                 }
-                else if (tipo == 3) {
-
-                }
-            }  
-    }
-
-    public void cadastrarPessoa(){
         
-            while(!quit){
+            }
+        }
+        
+            
+    
+    public void cadastrarPessoa() {
+       
+        while (!quit) {
+            System.out.println("Bem vindo ao sistema de cadastro");
+            System.out.println("Digite 'quit' para sair");
 
-                System.out.println("Bem vindo ao sistema de cadastro");
-                System.out.println("Digite 'quit' para sair");
+            System.out.println("Nome: ");
+            String nome = scanner.next();
+            if (nome.equalsIgnoreCase("quit")) {
+                break;
+            }
+            System.out.println("Informe o CPF: ");
+            String cpf = scanner.next();
 
-                System.out.println("Nome: ");
-                String nome = scanner.next();
-                if (nome.equalsIgnoreCase("quit")){
-                    break;
-                }
-                System.out.println("Informe o CPF: ");
-                String cpf = scanner.next();
-                
-                
-                
-
-
-                System.out.println("Informe sua idade");
-                int idade = scanner.nextInt();
-                if (idade < 18){
-                    System.out.println("Idade insuficiente para cadastro!");
-                    break;
-                    
-                }
-
-
-                System.out.println("Você gostaria de se cadastrar como: ");
-                System.out.println("1 - Gerente");
-                System.out.println("2 - Funcionário");
-                System.out.println("3 - Cliente");
-                int opcao = scanner.nextInt();
-                if(opcao == 1 ){
-                    System.out.println("Digite a senha para cadastrar um Gerente"); //senha = 123
-                    int senha = scanner.nextInt();
-                    if(senha != 123){
-                        System.out.println("Senha incorreta");
-                        break;
-                    }           
-                    
-                    Gerente g = new Gerente(nome, cpf, idade);
-                    g.addGerente(g);
-                    System.out.println("Gerente cadastrado");
-                    
-                }
-                else if (opcao == 2){
-                    System.out.println("Digite a senha para cadastrar um Funcionario"); //senha = 321
-                    int senha = scanner.nextInt();
-                    if(senha != 321){
-                        System.out.println("Senha incorreta");
-                        break;
-
-                    }
-                    Funcionario g = new Funcionario(nome, cpf, idade);
-                    g.addFuncionario(g);
-                    System.out.println("Funcionario cadastrado");
-                    
-                    
-
-                }
-                else if (opcao == 3){
-                    Cliente g = new Cliente(nome, cpf, idade);
-                    g.addCliente(g);
-                    System.out.println("Cliente cadastrado");
-                    
-                
-                }
+            System.out.println("Informe sua idade");
+            int idade = scanner.nextInt();
+            if (idade < 18) {
+                System.out.println("Idade insuficiente para cadastro!");
+                break;
             }
 
-    }
+            System.out.println("Você gostaria de se cadastrar como: ");
+            System.out.println("1 - Gerente");
+            System.out.println("2 - Funcionário");
+            System.out.println("3 - Cliente");
+            int opcao = scanner.nextInt();
 
+            switch (opcao) {
+                case 1:
+                        System.out.println("Digite a senha para cadastrar um Gerente"); // senha = 123
+                        int senha = scanner.nextInt();
+                        if (senha != 123) {
+                            System.out.println("Senha incorreta");
+                            break;
+                        }
+
+                        Gerente g = new Gerente(nome, cpf, idade);
+                        g.addGerente(g);
+                        System.out.println("Gerente cadastrado");
+  
+                    break;
+                case 2:
+            
+                        System.out.println("Digite a senha para cadastrar um Funcionário"); // senha = 321
+                        int senhaF = scanner.nextInt();
+                        if (senhaF != 321) {
+                            System.out.println("Senha incorreta");
+                            break;
+                        }
+                        Funcionario f = new Funcionario(nome, cpf, idade);
+                        f.addFuncionario(f);
+                        System.out.println("Funcionário cadastrado");
+                    break;
+                case 3:
+                    Cliente c = new Cliente(nome, cpf, idade);
+                    c.addCliente(c);
+                    System.out.println("Cliente cadastrado");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida.");
+                    break;
+            }
+        }
+    }
 }

@@ -29,7 +29,7 @@ public class PetShop extends Produto{
     @Override
     public void mostrarProdutos() {
         System.out.println();
-        System.out.println("Departamento: Pet Shop");
+        System.out.println("Pet Shop");
 
         System.out.println("Roupinhas: ");
         for (PetShop produto : listaRoupinhas) {
